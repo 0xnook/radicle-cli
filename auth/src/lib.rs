@@ -324,19 +324,6 @@ mod tests {
 
     #[assay(
         setup = test::setup::lnk_home()?,
-        teardown = test::teardown::profiles()?,
-    )]
-    fn can_be_initialized() {
-        let options = create_auth_options("user");
-
-        init(options).unwrap();
-
-        assert_eq!(profile::count().unwrap(), 1);
-        assert_eq!(profile::name(None).unwrap(), "user");
-    }
-
-    #[assay(
-        setup = test::setup::lnk_home()?,
     )]
     fn name_cannot_contain_whitespace() {
         let options = create_auth_options("user A");
